@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /assets
+Disallow: /.git
+
+Sitemap: https://yamunaenterprises.in/sitemap.xml

@@ -1,0 +1,21 @@
+# Redirect www to non-www
+https://www.yamunaenterprises.in/* https://yamunaenterprises.in/:splat 301!
+
+# Force HTTPS
+http://yamunaenterprises.in/* https://yamunaenterprises.in/:splat 301!
+
+# Security Headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Cache-Control Headers for assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
