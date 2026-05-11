@@ -189,25 +189,23 @@ img {
 
 /* Navbar Logo - Consolidated with User Preferred Sizing */
 .nav-logo-img {
-    height: 60px;
-    /* Optimal mobile base */
+    height: 80px; /* Significantly increased for mobile legibility of "Enterprises" */
     width: auto;
     object-fit: contain;
     transition: var(--transition);
-    mix-blend-mode: multiply;
-    filter: brightness(1.02) contrast(1.1);
     display: block;
+    /* Removed blend modes/filters to ensure maximum sharpness of fine text */
 }
 
 @media (min-width: 768px) {
     .nav-logo-img {
-        height: 75px;
+        height: 95px;
     }
 }
 
 @media (min-width: 1024px) {
     .nav-logo-img {
-        height: 90px;
+        height: 110px;
     }
 }
 
