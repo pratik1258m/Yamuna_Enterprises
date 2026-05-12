@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --gold: #C17F24;
     --gold-light: #E9B355;
@@ -412,8 +416,8 @@ img {
 .flip-wrapper {
     perspective: 1400px;
     height: 100%;
-    min-height: 580px;
-    /* Base height for desktop */
+    min-height: 640px;
+    /* Stable height to prevent resizing on flip */
     cursor: pointer;
 }
 
@@ -450,8 +454,8 @@ img {
 
 @media (max-width: 640px) {
     .flip-wrapper {
-        min-height: 600px;
-        /* Increased to ensure long descriptions are fully visible */
+    min-height: 660px;
+    /* Stable height for mobile descriptions */
     }
 
     .flip-back {
@@ -579,10 +583,10 @@ img {
 .spec-pill {
     font-size: 0.7rem;
     font-weight: 700;
-    padding: 0.4rem 0.8rem;
+    padding: 0.25rem 0.6rem;
     background: var(--cream-alt);
     border: 1px solid var(--warm-border);
-    border-radius: 8px;
+    border-radius: 6px;
     color: var(--warm-muted);
     text-transform: uppercase;
 }
@@ -603,24 +607,25 @@ img {
 
 @media (min-width: 768px) {
     .product-card {
-        min-height: 620px;
+    min-height: 640px;
+    /* Match flip-wrapper for stability */
     }
 }
 
 .product-image-shell {
     height: 280px;
-    /* Optimized for mobile to allow more space for text */
-    background: #fff;
+    background: var(--cream-card);
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid var(--warm-border);
 }
 
 @media (min-width: 768px) {
     .product-image-shell {
-        height: 320px;
+        height: 280px;
     }
 }
 
@@ -631,10 +636,10 @@ img {
     transition: transform 0.6s var(--ease-out-expo);
 }
 
-@media (min-width: 768px) {
-    .product-image-shell {
-        height: 360px;
-    }
+.spec-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .about-image-shell {
@@ -881,4 +886,103 @@ img {
 
 [x-cloak] {
     display: none !important;
+}
+
+/* Flagship Focus Card Interactivity */
+.flagship-focus-card {
+    transition: all 0.6s var(--ease-out-expo);
+    position: relative;
+    z-index: 10;
+}
+
+.flagship-focus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(45, 36, 30, 0.1);
+    border-color: var(--gold-light);
+}
+
+.flagship-focus-card:hover .machine-zoom-img {
+    transform: scale(1.08);
+}
+
+.flagship-focus-card .expandable-info {
+    max-height: 500px !important;
+    opacity: 1 !important;
+    margin-top: 0.5rem !important;
+    transition: all 0.5s ease;
+}
+
+.flagship-focus-card .gold-line {
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .flagship-focus-card {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* Ensure the hero section allows for the card's presence */
+.hero {
+    min-height: auto;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        min-height: 90vh;
+    }
+}
+
+/* Product Swiper Navigation Refinement */
+.product-swiper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.product-nav-prev, .product-nav-next {
+    top: 45% !important;
+    transform: translateY(-50%);
+    z-index: 20;
+    transition: all 0.3s ease;
+}
+
+.product-nav-prev {
+    left: -10px !important;
+}
+
+.product-nav-next {
+    right: -10px !important;
+}
+
+@media (min-width: 1280px) {
+    .product-nav-prev { left: -60px !important; }
+    .product-nav-next { right: -60px !important; }
+}
+
+@media (max-width: 768px) {
+    .product-nav-prev, .product-nav-next {
+        display: none !important; /* Hide on small screens to avoid overlap */
+    }
+}
+
+.product-nav-prev:hover, .product-nav-next:hover {
+    background-color: var(--gold) !important;
+    color: white !important;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.product-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-pagination .swiper-pagination-bullet-active {
+    background: var(--gold) !important;
+    width: 24px;
+    border-radius: 4px;
 }

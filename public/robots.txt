@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/assets/*.map
+
+# Allow Google to crawl images and JS/CSS
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Googlebot
+Allow: /assets/
+
+# Sitemaps
+Sitemap: https://yamunaenterprises.in/sitemap.xml
+Sitemap: https://yamunaenterprises.in/sitemap-images.xml

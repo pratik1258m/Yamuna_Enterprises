@@ -95,8 +95,8 @@ window.closeLightbox = function () {
             pagination: { el: '.swiper-pagination', clickable: true },
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 20 },
-                1024: { 
-                    slidesPerView: 3, 
+                1024: {
+                    slidesPerView: 3,
                     spaceBetween: 28,
                     loop: testimonialSlides > 3 // Disable loop on desktop if only 3 slides
                 }
@@ -107,6 +107,12 @@ window.closeLightbox = function () {
             slidesPerView: 1.2,
             spaceBetween: 20,
             grabCursor: true,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
